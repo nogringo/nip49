@@ -15,16 +15,16 @@ import 'package:pointycastle/pointycastle.dart' as pointycastle;
 class Nip49 {
   /// Protocol version byte
   static const int version = 0x02;
-  
+
   /// Bech32 human-readable prefix for encrypted keys
   static const String hrp = 'ncryptsec';
-  
+
   /// Default log2(N) parameter for scrypt (N=65536)
   static const int defaultLogN = 16;
-  
+
   /// Minimum allowed log2(N) parameter (N=4096)
   static const int minLogN = 12;
-  
+
   /// Maximum allowed log2(N) parameter (N=4194304)
   static const int maxLogN = 22;
 

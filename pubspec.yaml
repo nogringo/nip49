@@ -1,7 +1,10 @@
 name: nip49
-description: A starting point for Dart libraries or applications.
+description: NIP-49 Private Key Encryption for Nostr protocol - encrypt/decrypt private keys with passwords.
 version: 1.0.0
-# repository: https://github.com/my_org/my_repo
+repository: https://github.com/nogringo/nip49
+topics:
+  - nostr
+  - nip49
 
 environment:
   sdk: ^3.8.1
