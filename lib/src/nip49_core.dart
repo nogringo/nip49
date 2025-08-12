@@ -6,6 +6,7 @@ import 'package:bech32/bech32.dart';
 import 'package:convert/convert.dart';
 import 'package:pointycastle/key_derivators/scrypt.dart' as pc;
 import 'package:pointycastle/pointycastle.dart' as pointycastle;
+import 'package:unorm_dart/unorm_dart.dart' as unorm;
 
 /// NIP-49 Private Key Encryption implementation.
 ///
@@ -30,10 +31,8 @@ class Nip49 {
 
   /// Normalizes password using Unicode NFKC normalization.
   static String normalizePassword(String password) {
-    // Unicode NFKC normalization
-    // In Dart, we'll use the password as-is since Dart strings are already UTF-16
-    // For full NFKC normalization, you would need a specialized library
-    return password;
+    // Apply Unicode NFKC normalization as required by NIP-49
+    return unorm.nfkc(password);
   }
 
   /// Derives an encryption key from a password using scrypt.

@@ -31,5 +31,27 @@ void main() {
       final decrypted = await Nip49.decrypt(encrypted, password);
       expect(decrypted, equals(privateKey));
     });
+
+    test('Unicode NFKC normalization', () async {
+      final privateKey =
+          '7f3b34c7a7a42f3d7b8b5e1a2c9d8e7f6a5b4c3d2e1f0a9b8c7d6e5f4a3b2c1d';
+
+      // Test that normalization works
+      expect(Nip49.normalizePassword('café'), equals('café'));
+      expect(Nip49.normalizePassword('café'), equals('café'));
+      expect(Nip49.normalizePassword('①②③'), equals('123'));
+      expect(Nip49.normalizePassword('ﬁle'), equals('file'));
+      expect(Nip49.normalizePassword('Ａｐｐｌｅ'), equals('Apple'));
+
+      // Test encryption/decryption with normalized passwords
+      final password1 = 'café'; // With combining character
+      final password2 = 'café'; // With precomposed character
+
+      final encrypted = await Nip49.encrypt(privateKey, password1);
+      final decrypted = await Nip49.decrypt(encrypted, password2);
+
+      expect(decrypted, equals(privateKey));
+      print('✅ Unicode NFKC normalization working correctly!');
+    });
   });
 }
