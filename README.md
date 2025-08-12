@@ -1,39 +1,33 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+NIP-49 Private Key Encryption for Nostr protocol - encrypt/decrypt private keys with passwords.
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages). 
+## Examples
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages). 
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
-
-## Features
-
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
+### Encrypt
 
 ```dart
-const like = 'sample';
+import 'package:nip49/nip49.dart';
+
+final privateKey = '7f3b34c7a7a42f3d7b8b5e1a2c9d8e7f6a5b4c3d2e1f0a9b8c7d6e5f4a3b2c1d';
+final password = 'mysecurepassword';
+
+final encrypted = await Nip49.encrypt(privateKey, password);
+print(encrypted);
+// ncryptsec1qgg...
 ```
 
-## Additional information
+### Decrypt
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+```dart
+import 'package:nip49/nip49.dart';
+
+final encryptedKey = 'ncryptsec1qgg9947rlpvqu76pj5ecreduf9jxhselq2nae2kghhvd5g7dgjtcxfqtd67p9m0w57lspw8gsq6yphnm8623nsl8xn9j4jdzz84zm3frztj3z7s35vpzmqf6ksu8r89qk5z2zxfmu5gv8th8wclt0h4p';
+final password = 'nostr';
+
+final privateKey = await Nip49.decrypt(encryptedKey, password);
+print(privateKey);
+// 3501454135014541350145413501453fefb02227e449e57cf4d3a3ce05378683
+```
+
+## My Nostr for contact and donation
+
+https://njump.me/npub1kg4sdvz3l4fr99n2jdz2vdxe2mpacva87hkdetv76ywacsfq5leqquw5te
