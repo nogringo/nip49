@@ -1,3 +1,7 @@
+## 1.1.1
+
+- Dowgrade pointycastle to 3.9.1 for NDK support
+
 ## 1.1.0
 
 - Added full Unicode NFKC normalization support for passwords

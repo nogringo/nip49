@@ -1,6 +1,6 @@
 name: nip49
 description: NIP-49 Private Key Encryption for Nostr protocol - encrypt/decrypt private keys with passwords.
-version: 1.1.0
+version: 1.1.1
 repository: https://github.com/nogringo/nip49
 topics:
   - nostr
@@ -13,7 +13,7 @@ dependencies:
   cryptography: ^2.7.0
   bech32: ^0.2.2
   convert: ^3.1.2
-  pointycastle: ^4.0.0
+  pointycastle: ^3.9.1
   unorm_dart: ^0.3.1+1
 
 dev_dependencies:
