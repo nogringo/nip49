@@ -1,3 +1,7 @@
+## 1.1.2
+
+- Upgrade pointycastle to 4.0.0
+
 ## 1.1.1
 
 - Dowgrade pointycastle to 3.9.1 for NDK support
